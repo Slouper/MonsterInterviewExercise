@@ -1,4 +1,4 @@
-package cz.selenide.utils;
+package cz.selenide.monsterapp.utils;
 
 import com.codeborne.selenide.Selenide;
 

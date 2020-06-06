@@ -12,3 +12,13 @@ Please have this flow automated using following tools:
  - Java language
  - TestNG
  - Selenide
+ 
+ Comments:
+  - DatePicker in registration form
+  - Only xpaths usage
+  - Exception handling
+  - Used / entered / fulfilled only required values in registration form
+  - Some values are hardcoded
+  - SaveJobTestStep simplified
+  - Dynamic IDs
+  - Separate to atomic tests

@@ -1,9 +1,10 @@
-package cz.selenide.monsterapp.pageobject;
+package cz.selenide.monsterapp.pageobject.home;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.page;
 
 import com.codeborne.selenide.SelenideElement;
+import cz.selenide.monsterapp.pageobject.LoginFragment;
 import cz.selenide.monsterapp.pageobject.base.AbstractPage;
 
 public class HomePage extends AbstractPage {

@@ -12,5 +12,7 @@ public class Config {
     Configuration.browser = browser.toString();
     Configuration.startMaximized = true;
     Configuration.baseUrl = MONSTERWORKS_HOMEPAGE_URL;
+    Configuration.clickViaJs = true;
+    Configuration.pageLoadStrategy = "eager";
   }
 }
