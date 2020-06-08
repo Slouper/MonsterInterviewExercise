@@ -18,23 +18,26 @@ public class LoginFragment extends AbstractFragment {
   private static final Logger LOG = LogManager.getLogger(WebDriverFactory.class);
 
   private final SelenideElement wrappingElement = $x("//div[@class='modal-content']");
-  private final SelenideElement createNewAccountAnchor = $x("//a[text()='Create an account']");
-  private final SelenideElement loginEmailInput = firstInputContainingLabel("Email Address");
-  private final SelenideElement loginPasswordInput = firstInputContainingLabel("Password");
-  private final SelenideElement signInButton = $x("(//button[@type='submit' and normalize-space(text())='Sign in'])[1]");
 
-  public void clickOnRegistrationAnchor() {
+  private final SelenideElement createNewAccountAnchor = wrappingElement.$x(".//a[text()='Create an account']");
+  private final SelenideElement loginEmailInput = firstInputContainingLabel(wrappingElement, "Email Address");
+  private final SelenideElement loginPasswordInput = firstInputContainingLabel(wrappingElement, "Password");
+  private final SelenideElement signInButton = wrappingElement.$x("(.//button[@type='submit' and normalize-space(text())='Sign in'])[1]");
+
+  public R1_PersonalInformationPage clickOnRegistrationAnchor() {
     R1_PersonalInformationPage personalInformationPage = page(R1_PersonalInformationPage.class);
     LoopUtils.doWhile(
         personalInformationPage::isOpen,
         this::clickOnCreateNewAccountWithWait
     );
     personalInformationPage.assertPageIsOpen();
+    return personalInformationPage;
   }
 
   private void clickOnCreateNewAccountWithWait() {
-    // TODO: Could not resolve the issue with clicking on the link. It clicks but no result of click is visible.
-    LOG.warn("TODO: Fix this hard waiting for 'Create New Account' to be clicked. Resolve the issue with clicking without result.'");
+    // TODO: Could not resolve the issue with clicking on the link. It clicks but no result of click is visible. Therefore there is hard waiting until now.
+    LOG.warn(
+        "TODO: Investigate why we have tio wait and then fix hard waiting for 'Create New Account' to be clicked. Resolve the issue with clicking without result.'");
     sleep(5000);
     performClick(createNewAccountAnchor);
     sleep(5000);

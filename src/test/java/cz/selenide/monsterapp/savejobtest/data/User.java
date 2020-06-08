@@ -12,13 +12,15 @@ public class User {
   private final LocalDate dateOfBirth;
   private final String email;
   private final String phoneNumber;
+  private final String password;
 
-  public User(String firstName, String lastName, int socialSecurityNumber, LocalDate dateOfBirth, String email, String phoneNumber) {
+  public User(String firstName, String lastName, int socialSecurityNumber, LocalDate dateOfBirth, String email, String phoneNumber, String password) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.socialSecurityNumber = socialSecurityNumber;
     this.dateOfBirth = dateOfBirth;
     this.email = email;
     this.phoneNumber = phoneNumber;
+    this.password = password;
   }
 }

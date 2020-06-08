@@ -1,7 +1,6 @@
 package cz.selenide.monsterapp.pageobject.registration;
 
 import static com.codeborne.selenide.Selenide.$x;
-import static com.codeborne.selenide.Selenide.refresh;
 import static com.codeborne.selenide.Selenide.sleep;
 import static cz.selenide.monsterapp.pageobject.base.SelenideExtensionsKt.performClick;
 
@@ -10,7 +9,7 @@ import java.time.LocalDate;
 
 public class R1_PersonalInformationPage extends CommonRegistrationPage {
 
-  // Used for isOpen Check
+  @SuppressWarnings("unused" /* Used for default page isOpen check */)
   private final SelenideElement registrationPageTitle = $x("//h1[text()='Create Account']");
   private final SelenideElement firstNameInput = $x("//input[@id='a_elem_0']");
   private final SelenideElement lastNameInput = $x("//input[@id='a_elem_1']");
@@ -18,7 +17,7 @@ public class R1_PersonalInformationPage extends CommonRegistrationPage {
   private final SelenideElement socialSecurityNumberReenterInput = $x("//input[@id='a_elem_5']");
   private final SelenideElement dateOfBirthInput = $x("//input[@id='elem_6']");
   private final SelenideElement datePickerButton = $x("//input[@id='elem_6']/following-sibling::span[2]");
-  private final SelenideElement todayDateAchnor = $x("//a[contains(text(), 'Today is')]");
+  private final SelenideElement todayDateAnchor = $x("//a[contains(text(), 'Today is')]");
   private final SelenideElement jobCorpsCenterSelectBox = $x("//select[@id='elem_7']");
   private final SelenideElement usCitizenYesRadio = $x("//label[@id='id_option_label_elem_3-2008']");
 
@@ -28,7 +27,6 @@ public class R1_PersonalInformationPage extends CommonRegistrationPage {
   }
 
   public R1_PersonalInformationPage setFirstName(String firstName) {
-    refresh();
     firstNameInput.setValue(firstName);
     return this;
   }
@@ -47,7 +45,7 @@ public class R1_PersonalInformationPage extends CommonRegistrationPage {
   public R1_PersonalInformationPage setDateOfBirth(LocalDate date) {
     performClick(datePickerButton);
     sleep(1000);
-    performClick(todayDateAchnor);
+    performClick(todayDateAnchor);
     sleep(1000);
     performClick(dateOfBirthInput);
     sleep(1000);

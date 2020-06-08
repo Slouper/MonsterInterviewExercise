@@ -11,8 +11,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
 public abstract class AbstractPage {
-  private ThreadLocal<Actions> actions;
+  private Actions actions;
   private JavascriptExecutor javascriptExecutor;
+  private Alerts alerts;
 
   public boolean isOpen() {
     SelenideElement checkedElement = null;
@@ -32,7 +33,7 @@ public abstract class AbstractPage {
       return checkedElement.isDisplayed();
     } else {
       throw new RuntimeException(format(
-          "Is expected, that page class [%s] has at least one SelenideElement defined, but none was found and therfore isOpen() check could not be performed.",
+          "Is expected, that page class [%s] has at least one SelenideElement defined, but none was found and therefor isOpen() check could not be performed.",
           this.getClass().getSimpleName()));
     }
   }
@@ -41,13 +42,22 @@ public abstract class AbstractPage {
     return WebDriverRunner.getWebDriver();
   }
 
+  @SuppressWarnings("unused" /* For manipulating with page */)
   protected Actions getActions() {
-    if (actions.get() == null) {
-      actions.set(new Actions(getDriver()));
+    if (actions == null) {
+      actions = new Actions(getDriver());
     }
-    return actions.get();
+    return actions;
   }
 
+  public Alerts alerts() {
+    if (alerts == null) {
+      alerts = new Alerts();
+    }
+    return alerts;
+  }
+
+  @SuppressWarnings("unused" /* For manipulating via javascript */)
   public JavascriptExecutor getJavascriptExecutor() {
     if (javascriptExecutor == null) {
       javascriptExecutor = (JavascriptExecutor) getDriver();
@@ -55,18 +65,19 @@ public abstract class AbstractPage {
     return javascriptExecutor;
   }
 
-  public void assertPageIsOpen() {
+  public final void assertPageIsOpen() {
     if (!this.isOpen()) {
       throw new PageIsNotOpenException(format("Page [%s] is not open.", this.getClass().getSimpleName()));
     }
   }
 
-  public class PageIsNotOpenException extends RuntimeException {
+  public static class PageIsNotOpenException extends RuntimeException {
     public PageIsNotOpenException(String message) {
       super(message);
     }
   }
 
+  @SuppressWarnings("SameParameterValue" /* For variable usage on all the pages */)
   protected boolean pageTitleContains(String value) {
     return $x(format("//title[contains(normalize-space(text()), '%s')]", value)).exists();
   }

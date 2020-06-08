@@ -14,11 +14,9 @@ Please have this flow automated using following tools:
  - Selenide
  
  Comments:
-  - DatePicker in registration form
-  - Only xpaths usage
-  - Exception handling
-  - Used / entered / fulfilled only required values in registration form
-  - Some values are hardcoded
-  - SaveJobTestStep simplified
-  - Dynamic IDs
-  - Separate to atomic tests
+  - DatePicker in registration form - Difficult usage as for automation as for user
+  - Only xpaths usage - I use only xpaths, but I am also aware of other methods and I am prepared to use them if requested :)
+  - Exception handling - In real life more custom exception would be define from my side
+  - Only required field used in registration form
+  - Dynamic IDs in registration form are surprise :), therefore I use special locators with usage of relationship label + input 
+  - In real life there would be payed more attention to split tests / steps into more atomics units

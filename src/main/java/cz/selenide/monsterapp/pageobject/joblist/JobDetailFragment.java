@@ -7,7 +7,7 @@ import cz.selenide.monsterapp.pageobject.base.AbstractFragment;
 
 public class JobDetailFragment extends AbstractFragment {
   private final SelenideElement wrappingElement = $x("//div[@id='ContentContainer']");
-  private final SelenideElement saveJobAnchor = $x("//a[@id='SaveJob']//*[text() = 'Save']");
+  private final SelenideElement saveJobAnchor = wrappingElement.$x(".//a[@id='SaveJob']//*[text() = 'Save']");
 
   public void clickOnSaveJobAnchor() {
     saveJobAnchor.click();
