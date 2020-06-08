@@ -1,4 +1,4 @@
-# MonsterInterviewExcercise
+# MonsterInterviewExercise
 Task for interview - Automation test with Selenide
 
 1) Go to https://www.monsterworksdemo.com/home/
@@ -14,9 +14,10 @@ Please have this flow automated using following tools:
  - Selenide
  
  Comments:
-  - DatePicker in registration form - Difficult usage as for automation as for user
-  - Only xpaths usage - I use only xpaths, but I am also aware of other methods and I am prepared to use them if requested :)
-  - Exception handling - In real life more custom exception would be define from my side
+  - The application contains some bugs and currently the process ends on account creation, because of error message. If we want to continue through this step, we can use the maven profile 'doNotEndTestAfterAccountCreationError'.
+  - DatePicker in registration form - Difficult to use for automation and for user as well
+  - Only xpaths usage - I use only xpaths, but I am also aware of other possible methods, and I am prepared to use them if requested :)
+  - Exception handling - In real life more custom exception would be defined from my side
   - Only required field used in registration form
   - Dynamic IDs in registration form are surprise :), therefore I use special locators with usage of relationship label + input 
-  - In real life there would be payed more attention to split tests / steps into more atomics units
+  - In real life there would be paid more attention to split tests / steps into more atomics units

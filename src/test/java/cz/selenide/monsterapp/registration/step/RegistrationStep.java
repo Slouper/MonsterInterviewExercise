@@ -83,7 +83,9 @@ public class RegistrationStep extends AbstractStep {
     // TODO: investigate how much time takes account creation on BEs. After that bring the solution for dynamic waiting.
     sleep(5000);
 
-    assertErrorAlertIsDisplayed();
+    if (!Boolean.getBoolean("ignoreError")) {
+      assertErrorAlertIsDisplayed();
+    } // else: do not check account creation error - use only for following functionalities presentation
   }
 
   private void refreshIfAlertsDangerIsDisplayed(R1_PersonalInformationPage personalInformationPage) {
