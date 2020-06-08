@@ -24,7 +24,8 @@ public class SaveJobStep extends AbstractStep {
     JobListFragment jobListFragment = page(JobListFragment.class);
     JobDetailFragment jobDetailFragment = page(JobDetailFragment.class);
 
-    String firstJobName = jobListFragment.clickOnJobTitleAtRow(1);
+    logStep("Saving second job to saved jobs.");
+    String firstJobName = jobListFragment.clickOnJobTitleAtRow(2);
     jobDetailFragment.clickOnSaveJobAnchor();
 
     if (page(LoginFragment.class).isOpen()) {
@@ -32,6 +33,7 @@ public class SaveJobStep extends AbstractStep {
       new LoginStep().login(testUser);
     }
 
+    logStep("Saving last job to saved jobs.");
     String lastJobName = jobListFragment
         .clickOnJobTitleAtRow(jobListFragment.getAllJobRowsCount());
     jobDetailFragment.clickOnSaveJobAnchor();
