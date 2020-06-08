@@ -21,6 +21,10 @@ public class JobListFragment extends AbstractFragment {
     return jobName;
   }
 
+  public SelenideElement getJobRow(int index) {
+    return wrappingElement.$x(format(jobRowXPathWithPlaceholder, index));
+  }
+
   public int getAllJobRowsCount() {
     return jobRowList.size();
   }

@@ -21,3 +21,6 @@ Please have this flow automated using following tools:
   - Only required field used in registration form
   - Dynamic IDs in registration form are surprise :), therefore I use special locators with usage of relationship label + input 
   - In real life there would be paid more attention to split tests / steps into more atomics units
+  - After clicking on save job it gets stuck on blank page
+  - Could not test comparing list of saved jobs and actual saved jobs on profile, because saving job did not work for me
+  - In real project I would use properties files for some values (Urls, ...)
