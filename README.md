@@ -21,6 +21,6 @@ Please have this flow automated using following tools:
   - Exception handling - In real life more custom exception would be defined from my side
   - Only required field used in registration form
   - Dynamic IDs in registration form are surprise :), therefore I use special locators with usage of relationship label + input 
-  - In real life there would be paid more attention to split tests / steps into more atomics units
+  - In real project there would be paid more attention to split tests / steps into more atomics units - current suite maybe would be composed as suite from more tests.
   - After clicking on save job it gets stuck on blank page
   - In real project I would use properties files for some values (Urls, ...)
