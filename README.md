@@ -15,6 +15,7 @@ Please have this flow automated using following tools:
  
  Comments:
   - The application contains some bugs and currently the process ends on account creation, because of error message. If we want to continue through this step, we can use the maven profile 'doNotEndTestAfterAccountCreationError'.
+  - Could not test comparing list of saved jobs and actual saved jobs on profile, because saving job did not work for me. It is implemented, but not tested.
   - DatePicker in registration form - Difficult to use for automation and for user as well
   - Only xpaths usage - I use only xpaths, but I am also aware of other possible methods, and I am prepared to use them if requested :)
   - Exception handling - In real life more custom exception would be defined from my side
@@ -22,5 +23,4 @@ Please have this flow automated using following tools:
   - Dynamic IDs in registration form are surprise :), therefore I use special locators with usage of relationship label + input 
   - In real life there would be paid more attention to split tests / steps into more atomics units
   - After clicking on save job it gets stuck on blank page
-  - Could not test comparing list of saved jobs and actual saved jobs on profile, because saving job did not work for me
   - In real project I would use properties files for some values (Urls, ...)
